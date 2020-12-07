@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- This file was created with the aha Ansi HTML Adapter. https://github.com/theZiz/aha -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xml+xhtml; charset=UTF-8" />
+<title>output/test.log</title>
+</head>
+<body style="color:white; background-color:black">
+<pre>
+
+&gt; eth-etherscan-account-tracker@0.0.1 test /Volumes/Dev/statechannels/eth-etherscan-account-tracker
+&gt; scripts/run_tests.sh all
+
+--------------------------------------------------------------------
+ Running tests in path &quot;test/*/*.ts&quot;
+--------------------------------------------------------------------
+
+
+  Integration
+    Wallet: constructed with parameters ( mnemonic, language = EN )
+      create one Ethereum account
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> should create first account</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> wallet should have 1 account</span>
+
+  Application
+    Configuration
+      Should load default configuration if available and no custom file or options are specified
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> apiUrl matches</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> apiKey matches</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> apiRate matches</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> monitoredAddress matches</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> requiredConfirmations matches</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> databaseFile matches</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> logToConsole matches</span>
+      Should load custom configuration if provided (./customConfig.json) and no custom options are specified
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> apiUrl matches</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> apiKey matches</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> apiRate matches</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> monitoredAddress matches</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> requiredConfirmations matches</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> databaseFile matches</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> logToConsole matches</span>
+      Can override each property provided it is set as an option
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> apiUrl matches test value</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> apiKey matches test value</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> apiRate matches test value</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> monitoredAddress matches test value</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> requiredConfirmations matches test value</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> databaseFile matches test value</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> logToConsole matches test value</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> autoFirstRunImport is set to true and matches</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> autoFirstRunImport is set to false and matches</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> outputFilename matches test value</span>
+
+  Application
+    Helpers
+      getRecordedTransactionCount()
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> returns 0 if no transactions have been saved</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> returns 1 if 1 transaction has been saved</span>
+      saveTransactionIfNotRecorded()
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> transaction count increases by 1</span>
+      isTransactionRecorded()
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> returns true on the previous dummy data transaction</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> returns false on a non existing hash</span>
+      getRecordedTransaction()
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> recordedTransaction.timestamp matches dummyTransaction.timeStamp</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> recordedTransaction.block matches dummyTransaction.blockNumber</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> recordedTransaction.hash matches dummyTransaction.hash</span>
+      getLastRecordedTransactionBlock()
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> returns dummyTransaction.block</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> returns proper block after a new record is inserted</span>
+    First run - autoFirstRunImport false
+      Setup
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> creates the test database file</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> creates the processed_transactions table in the database</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> getRecordedTransactionCount() returns 0</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> enables the initial import of transactions for the monitored address</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> getLastRecordedTransactionBlock() returns 0</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> autoFirstRunImport is false</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> initialised is true</span>
+      Initial import - with cached dummy data
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> autoFirstRunImport is true</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> initialised is true</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> transaction count increases to 3</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> OUTPUT.txt file contains 3 lines</span>
+        Initial import - loop cycle - received new data
+        <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> transaction count increases to 4</span>
+        <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> OUTPUT.txt file contains 4 lines</span>
+
+  Application
+    Tracker
+      validateAndUpdateIncommingTransactionData()
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> returns true for a valid incomming transaction</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> returns false for a valid incomming transaction that does not have enough required confirmations</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> returns false for a valid incomming transaction that has ZERO value</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> returns false for a transaction with isError = 1</span>
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> returns false for a valid outgoing transaction</span>
+      prepareAccountTransactions()
+      <span style="color:lime;">  ✓</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> processes both normal and internal transactions, and excludes invalid, too-young and outgoing</span>
+
+
+<span style="filter: contrast(70%) brightness(190%);color:lime;"> </span><span style="color:lime;"> 55 passing</span><span style="filter: contrast(70%) brightness(190%);color:dimgray;"> (39ms)</span>
+
+--------------------------------------------------------------------
+</pre>
+</body>
+</html>

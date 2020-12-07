@@ -1,0 +1,91 @@
+{
+  "name": "eth-etherscan-account-tracker",
+  "version": "0.0.1",
+  "description": "Track account incoming transactions using Etherscan API and execute code ONCE for every detected transaction.",
+  "main": "dist/lib/index.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist/*",
+    "scripts/",
+    "src/",
+    "test/"
+  ],
+  "scripts": {
+    "build": "./node_modules/.bin/tsc -p . && npm run build:dec",
+    "build:dec": "scripts/declarations.sh",
+    "test": "scripts/run_tests.sh all",
+    "test-unit": "scripts/run_tests.sh unit",
+    "test-integration": "scripts/run_tests.sh integration",
+    "test-single": "scripts/run_tests.sh single",
+    "minter": "./node_modules/.bin/ts-node main.ts",
+    "clean": "scripts/clean.sh",
+    "testToHtml": "scripts/testOutputToHtml.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mickys/eth-etherscan-account-tracker.git"
+  },
+  "keywords": [
+    "eth",
+    "etherscan",
+    "account",
+    "api",
+    "transaction",
+    "tracker"
+  ],
+  "author": "Micky Socaci <micky@nowlive.ro>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mickys/eth-etherscan-account-tracker/issues"
+  },
+  "homepage": "https://github.com/mickys/eth-etherscan-account-tracker#readme",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "nyc": "^15.1.0",
+    "ts-mocha": "^8.0.0"
+  },
+  "dependencies": {
+    "@types/chai": "^4.2.14",
+    "@types/mocha": "^8.0.4",
+    "@types/node": "^10.11.3",
+    "axios": "^0.21.0",
+    "bignumber.js": "^9.0.1",
+    "chai": "^4.2.0",
+    "chai-bn": "^0.2.1",
+    "cli-table": "^0.3.1",
+    "dateformat": "^4.0.0",
+    "mocha": "^8.2.1",
+    "mocha-lcov-reporter": "^1.3.0",
+    "moonlet-core": "git+https://github.com/cryptolandtech/moonlet-core.git",
+    "sqlite-async": "^1.1.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.2",
+    "web3": "^1.2.11",
+    "web3-utils": "^1.2.11"
+  },
+  "standard": {
+    "env": "mocha",
+    "globals": [
+      "describe",
+      "it"
+    ]
+  },
+  "nyc": {
+    "extension": [
+      ".ts",
+      ".tsx"
+    ],
+    "include": "src",
+    "exclude": [
+      "**/*.d.ts"
+    ],
+    "reporter": [
+      "html",
+      "text"
+    ],
+    "all": true
+  }
+}

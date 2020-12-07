@@ -1,0 +1,12 @@
+{
+    "logToConsole": true,
+    "database_file": "./database/main.db",
+    "tracker": {
+        "start_block": 9000000,
+        "api_url": "https://api-ropsten.etherscan.io/api",
+        "api_key": "X16X7PJSGQKCQMBUJCR7MGWJK7R9XBZ6TX",
+        "api_rate_per_second": 5,
+        "required_confirmations": 20,
+        "monitoredAddress": "0xe422711D8714b643f18E0c000FC24FD230f06dBB"
+    }
+}

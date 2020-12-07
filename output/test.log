@@ -1,0 +1,95 @@
+
+> eth-etherscan-account-tracker@0.0.1 test /Volumes/Dev/statechannels/eth-etherscan-account-tracker
+> scripts/run_tests.sh all
+
+--------------------------------------------------------------------
+ Running tests in path "test/*/*.ts"
+--------------------------------------------------------------------
+
+[0m[0m
+[0m  Integration[0m
+[0m    Wallet: constructed with parameters ( mnemonic, language = EN )[0m
+[0m      create one Ethereum account[0m
+      [32m  ✓[0m[90m should create first account[0m
+      [32m  ✓[0m[90m wallet should have 1 account[0m
+
+[0m  Application[0m
+[0m    Configuration[0m
+[0m      Should load default configuration if available and no custom file or options are specified[0m
+      [32m  ✓[0m[90m apiUrl matches[0m
+      [32m  ✓[0m[90m apiKey matches[0m
+      [32m  ✓[0m[90m apiRate matches[0m
+      [32m  ✓[0m[90m monitoredAddress matches[0m
+      [32m  ✓[0m[90m requiredConfirmations matches[0m
+      [32m  ✓[0m[90m databaseFile matches[0m
+      [32m  ✓[0m[90m logToConsole matches[0m
+[0m      Should load custom configuration if provided (./customConfig.json) and no custom options are specified[0m
+      [32m  ✓[0m[90m apiUrl matches[0m
+      [32m  ✓[0m[90m apiKey matches[0m
+      [32m  ✓[0m[90m apiRate matches[0m
+      [32m  ✓[0m[90m monitoredAddress matches[0m
+      [32m  ✓[0m[90m requiredConfirmations matches[0m
+      [32m  ✓[0m[90m databaseFile matches[0m
+      [32m  ✓[0m[90m logToConsole matches[0m
+[0m      Can override each property provided it is set as an option[0m
+      [32m  ✓[0m[90m apiUrl matches test value[0m
+      [32m  ✓[0m[90m apiKey matches test value[0m
+      [32m  ✓[0m[90m apiRate matches test value[0m
+      [32m  ✓[0m[90m monitoredAddress matches test value[0m
+      [32m  ✓[0m[90m requiredConfirmations matches test value[0m
+      [32m  ✓[0m[90m databaseFile matches test value[0m
+      [32m  ✓[0m[90m logToConsole matches test value[0m
+      [32m  ✓[0m[90m autoFirstRunImport is set to true and matches[0m
+      [32m  ✓[0m[90m autoFirstRunImport is set to false and matches[0m
+      [32m  ✓[0m[90m outputFilename matches test value[0m
+
+[0m  Application[0m
+[0m    Helpers[0m
+[0m      getRecordedTransactionCount()[0m
+      [32m  ✓[0m[90m returns 0 if no transactions have been saved[0m
+      [32m  ✓[0m[90m returns 1 if 1 transaction has been saved[0m
+[0m      saveTransactionIfNotRecorded()[0m
+      [32m  ✓[0m[90m transaction count increases by 1[0m
+[0m      isTransactionRecorded()[0m
+      [32m  ✓[0m[90m returns true on the previous dummy data transaction[0m
+      [32m  ✓[0m[90m returns false on a non existing hash[0m
+[0m      getRecordedTransaction()[0m
+      [32m  ✓[0m[90m recordedTransaction.timestamp matches dummyTransaction.timeStamp[0m
+      [32m  ✓[0m[90m recordedTransaction.block matches dummyTransaction.blockNumber[0m
+      [32m  ✓[0m[90m recordedTransaction.hash matches dummyTransaction.hash[0m
+[0m      getLastRecordedTransactionBlock()[0m
+      [32m  ✓[0m[90m returns dummyTransaction.block[0m
+      [32m  ✓[0m[90m returns proper block after a new record is inserted[0m
+[0m    First run - autoFirstRunImport false[0m
+[0m      Setup[0m
+      [32m  ✓[0m[90m creates the test database file[0m
+      [32m  ✓[0m[90m creates the processed_transactions table in the database[0m
+      [32m  ✓[0m[90m getRecordedTransactionCount() returns 0[0m
+      [32m  ✓[0m[90m enables the initial import of transactions for the monitored address[0m
+      [32m  ✓[0m[90m getLastRecordedTransactionBlock() returns 0[0m
+      [32m  ✓[0m[90m autoFirstRunImport is false[0m
+      [32m  ✓[0m[90m initialised is true[0m
+[0m      Initial import - with cached dummy data[0m
+      [32m  ✓[0m[90m autoFirstRunImport is true[0m
+      [32m  ✓[0m[90m initialised is true[0m
+      [32m  ✓[0m[90m transaction count increases to 3[0m
+      [32m  ✓[0m[90m OUTPUT.txt file contains 3 lines[0m
+[0m        Initial import - loop cycle - received new data[0m
+        [32m  ✓[0m[90m transaction count increases to 4[0m
+        [32m  ✓[0m[90m OUTPUT.txt file contains 4 lines[0m
+
+[0m  Application[0m
+[0m    Tracker[0m
+[0m      validateAndUpdateIncommingTransactionData()[0m
+      [32m  ✓[0m[90m returns true for a valid incomming transaction[0m
+      [32m  ✓[0m[90m returns false for a valid incomming transaction that does not have enough required confirmations[0m
+      [32m  ✓[0m[90m returns false for a valid incomming transaction that has ZERO value[0m
+      [32m  ✓[0m[90m returns false for a transaction with isError = 1[0m
+      [32m  ✓[0m[90m returns false for a valid outgoing transaction[0m
+[0m      prepareAccountTransactions()[0m
+      [32m  ✓[0m[90m processes both normal and internal transactions, and excludes invalid, too-young and outgoing[0m
+
+
+[92m [0m[32m 55 passing[0m[90m (39ms)[0m
+
+--------------------------------------------------------------------
